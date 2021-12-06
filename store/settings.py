@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -178,3 +178,12 @@ if os.getcwd() == '/app':
 
 # Django Heroku Settings
 django_heroku.settings(locals())
+
+# AWS
+
+AWS_ACCESS_KEY_ID = 'AKIASQITCY4YUYR56I5H'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'store-agmir'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
