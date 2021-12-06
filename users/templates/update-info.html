@@ -1,0 +1,39 @@
+{% extends "base.html" %}{% load i18n %}{% block content %}
+<div class="container mb-6">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-6">
+            <div class="card card-profile">
+                <form method="POST" class="p-lg-4 p-xl-4 p-sm-0 p-md-4">
+                    <h3>{% trans "Update contact information" %}</h3>
+                    {% if confirm %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="alert-icon"><i class="fas fa-check-circle"></i></span>
+                        <span class="alert-text"><strong>{% trans 'Success!' %}</strong> {% trans 'Info has been updated successfully...' %}</span>
+                    </div>
+                    {% endif %}
+                        {% csrf_token %}
+                        <label for="id_username">{% trans 'Username' %}</label>
+                        <small class="text-red text-right">{{ form.username.errors }}</small>
+                        <input class="form-control roboto input-size" type="text" name="username" value="{{form.username.value}}" maxlength="150" required id="id_username">
+                        <span class="helptext text-primary ">{% trans 'Username should not contain spaces' %}.</span><br><br>
+                
+                        <label for="id_first_name">{% trans 'First name' %}</label>
+                        <small class="text-red text-right">{{ form.first_name.errors }}</small>
+                        <input class="form-control roboto input-size" type="text" name="first_name" value="{{form.first_name.value}}" maxlength="50" required id="id_first_name">
+                
+                        <label for="id_last_name">{% trans 'Last name' %}</label>
+                        <small class="text-red text-right">{{ form.last_name.errors }}</small>
+                        <input class="form-control roboto input-size" type="text" name="last_name" value="{{form.last_name.value}}" maxlength="50" required id="id_last_name">
+                
+                        <label for="id_email">{% trans 'Email' %}</label>
+                        <small class="text-red text-right">{{ form.email.errors }}</small>
+                        <input class="form-control roboto input-size" type="email" name="email" value="{{form.email.value}}" required id="id_email">
+                
+                        <input class="btn-ag ag-green w-50 mt-3" type="submit" value="{% trans 'Update' %}">
+                        <div class="mt-3">{% trans 'Make sure that your contact information is correct and real, so that we can recover your account if you encounter a problem logging in.' %}</div>
+                    </form>
+            </div>
+        </div>
+        {% include "components/settings-side.html"%}
+    </div>
+</div>{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% load i18n %} {% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card p-0 m-0 col-xs-12 col-sm-11 col-md-6 col-lg-6 col-xl-5">
+            <form method="POST" class="p-3 bg-secondary">
+                {% csrf_token %}
+                <input  placeholder="{% trans 'Username' %}" class="my-3 form-control form-control-alternative" type="text" name="username" maxlength="30" required id="id_username">
+                <span class="text-red">{{form.username.errors}}</span>
+                <input  placeholder="{% trans 'Email' %}" class="my-3 form-control form-control-alternative" type="email" name="email" maxlength="100" required id="id_email">
+                <span class="text-red">{{form.email.errors}}</span>
+                <input  placeholder="{% trans 'First Name' %}" class="my-3 form-control form-control-alternative" type="text" name="first_name" required id="id_first_name">
+                <input  placeholder="{% trans 'Last Name' %}" class="my-3 form-control form-control-alternative" type="text" name="last_name" required id="id_last_name">
+                <input  placeholder="{% trans 'Password' %}" class="my-3 form-control form-control-alternative" type="text" name="password" maxlength="128" required id="id_password">
+                <div class="d-flex justify-content-center mt-2">
+                    <input type="submit" class="btn btn-success w-50 mt-3" value="Sing in">
+                </div>
+                <div class="mt-2">
+                    <a href="{% url 'login' %}" class="m-2">{% trans "I have account" %}?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>{% endblock %}
+

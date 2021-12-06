@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% load i18n %}{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-xl-6">
+            <div class="card m-2 p-2">
+                <h2>{% trans "Settings" %} <small>({% trans "Manage your account easily" %})</small></h2>
+                <img src="https://www.freewsad.com/static/svg/example-8.svg" alt="Settings">
+            </div>
+        </div>
+        {% include "components/settings-side.html"%}
+    </div>
+</div>
+
+{% endblock %}

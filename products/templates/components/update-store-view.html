@@ -1,0 +1,42 @@
+{% load i18n %}
+<div class="card card-profile p-0 col-xs-12 col-sm-12 col-md-8 col-xl-6">
+    <img height="300px" src="{{store.cover.url}}" alt="Cover " class="card-img-top cover">
+    <div class="row justify-content-center">
+        <div class="col-lg-3 order-lg-2">
+            <div class="card-profile-image">
+                <a href="#">
+                    <img src="{{store.avatar.url}}" class="rounded-circle bg-gray">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-header text-center border-0 pt-md-4 pb-0 pb-md-4">
+        <div class="d-flex justify-content-between">
+            <a href="#" class="btn btn-sm btn-info  mr-4 ">Follow</a>
+            <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+        </div>
+    </div>
+    <div class="card-body pt-0">
+        <div class="row">
+            <div class="col">
+                <div class="card-profile-stats d-flex justify-content-center">
+                    <div>
+                        <span class="heading">{{store.follow.all.count}}</span>
+                        <span class="description">{% trans "Followers" %}</span>
+                    </div>
+                    <div>
+                        <span class="heading">10</span>
+                        <span class="description">Photos</span>
+                    </div>
+                    <div>
+                        <span class="heading">{{store.product_store.all.count}}</span>
+                        <span class="description">{% trans "Products" %}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <h5 class="h3">{{store.name}}</h5>
+        </div>
+    </div>
+</div>

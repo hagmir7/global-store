@@ -1,0 +1,80 @@
+{% extends "base.html" %}{% load i18n %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="card card-profile p-0 col-12">
+            <img height="300px" src="{{store.cover.url}}" alt="Cover " class="card-img-top cover">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 order-lg-2">
+                    <div class="card-profile-image">
+                        <a href="#">
+                            <img src="{{store.avatar.url}}" class="rounded-circle bg-gray">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-header text-center border-0 pt-md-4 pb-0 pb-md-4">
+                <div class="d-flex justify-content-between">
+                    <a href="#" class="btn btn-sm btn-info  mr-4 ">Follow</a>
+                    <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+                </div>
+            </div>
+            <div class="card-body pt-0">
+                <div class="row">
+                    <div class="col">
+                        <div class="card-profile-stats d-flex justify-content-center">
+                            <div>
+                                <span class="heading">{{store.follow.all.count}}</span>
+                                <span class="description">{% trans "Followers" %}</span>
+                            </div>
+                            <div>
+                                <span class="heading">10</span>
+                                <span class="description">Photos</span>
+                            </div>
+                            <div>
+                                <span class="heading">{{store.product_store.all.count}}</span>
+                                <span class="description">{% trans "Products" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h5 class="h3">{{store.name}}</h5>
+                    {% if store.description %}
+                    <p>{{store.description}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="container ">
+    <div class="row">
+        <!-- Start products  -->
+        {% for product in products %}
+       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-0">
+           <div class="card m-1 overflow-hidden border">
+               <a href="#">
+                <div class="product-image">
+                    <img width="100%" height="200px" class="cover " src="https://picsum.photos/200/300" alt="">
+                </div>
+                <div class="p-2">
+                    <a href="#">Lorem, ipsum dolor.</a><br>
+                    <span  class="d-3">123$</span>
+                 </div> 
+               </a>
+            </div>
+       </div>
+       {% empty %}
+       <div class="card col-12 p-3">
+           <h3 class="text-center">{% trans "No products" %}</h3>
+       </div>
+       {% endfor %}
+       <!-- End Products -->
+    </div>
+</div>
+
+
+{% endblock %}

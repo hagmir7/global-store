@@ -1,0 +1,41 @@
+{% extends "base.html" %}{% load i18n %}
+
+{% block content %}
+<div class="container">
+    <div class="card p-3">
+        <h3 class="mb-3"><a href="{% url 'create_store' %}"> Create New store</a></h3>
+        {% for store in stores %}
+        <ul class="list-group list-group-flush list">
+            <li class="list-group-item p-1 px-0">
+            <div class="row align-items-center">
+                <div class="col-1 p-0 p-xl-2">
+                    <!-- Country flag -->
+                    <img width="100%" src="{{store.avatar.url}}" alt="Country flag" />
+                </div>
+                <div class="col">
+                    <small>{% trans "Name" %} :</small>
+                    <h5 class="mb-0">{{store.name}}</h5>
+                </div>
+                <div class="col">
+                    <small>{% trans "Visits" %} :</small>
+                    <h5 class="mb-0">{{store.views.all.count}}</h5>
+                </div>
+                <div class="col">
+                    <small>{% trans "Products" %} :</small>
+                    <h5 class="mb-0">{{store.product_store.all.count}}</h5>
+                </div>           
+                <div class="col">
+                <a href="{% url 'update_store' store.id %}" class="btn btn-primary btn-sm w-100" >Update</a>
+                <a href="{% url 'store' store.id %}" class="btn btn-success btn-sm mt-1 w-100" >View</a>
+                </div>
+            </div>
+            </li>
+        </ul>  
+        {% empty %}
+        <div class="p-8 d-flex justify-content-center">
+            <span class="text-center h1">You have no stors</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

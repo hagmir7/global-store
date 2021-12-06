@@ -1,0 +1,62 @@
+{% load i18n %}
+<div class="accordion" id="accordionExample">
+    <div class="">
+        <div class="card-header border-0" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h5 class="mb-0">{% trans "About" %} Hassan</h5>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <ul class="list-group list-group-flush" data-toggle="checklist">  
+                <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                    
+            <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                    <h5 class="checklist-title mb-0">{% trans 'Email' %}</h5>
+                    <small>{{profile.user.email}}</small>
+                </div>
+            </div>
+            {% if profile.phone %}
+            <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                    <h5 class="checklist-title mb-0">{% trans 'Phone' %}</h5>
+                    <small>{{profile.phone}}</small>
+                </div>
+            </div>
+            {% endif %}
+            {% if profile.country %}
+            <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                    <h5 class="checklist-title mb-0">{% trans 'Country' %}</h5>
+                    <small>{{profile.country}}</small>
+                </div>
+            </div>
+            {% endif %}
+            {% if profile.website %}
+            <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                    <h5 class="checklist-title mb-0">{% trans 'Website' %}</h5>
+                    <small><a href="https://www.hagmir.com" target="_blank">www.hagmir.com</a></small>
+                </div>
+            </div>
+            {% endif %}
+            {% if profile.gander %}
+            <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                    <h5 class="checklist-title mb-0">{% trans 'Gander' %}</h5>
+                    <small>{{profile.gander}}</small>
+                </div>
+            </div>
+            {% endif %}
+            {% if profile.bio %}
+            <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                    <h5 class="checklist-title mb-0">{% trans 'Bio' %}</h5>
+                    <small>{{profile.bio}}</small>
+                </div>
+            </div>
+            {% endif %}
+            </li>           
+            </ul>  
+        </div>
+  </div>
+</div>
